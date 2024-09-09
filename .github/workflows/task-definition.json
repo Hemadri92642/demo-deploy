@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:908198849120:task-definition/demo-deploy:1",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:908198849120:task-definition/demo-deploys:4",
     "containerDefinitions": [
         {
             "name": "demo-deploys",
-            "image": "public.ecr.aws/r6x5f5h5/demo-deploy",
+            "image": "908198849120.dkr.ecr.ap-south-1.amazonaws.com/demo-deploys",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "demo-deploy-80-tcp",
+                    "name": "demo-deploys-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/demo-deploy",
+                    "awslogs-group": "/ecs/demo-deploys",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,10 +35,11 @@
             "systemControls": []
         }
     ],
-    "family": "demo-deploy",
+    "family": "demo-deploys",
+    "taskRoleArn": "arn:aws:iam::908198849120:role/ecsTaskExecutionRole",
     "executionRoleArn": "arn:aws:iam::908198849120:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 4,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -49,10 +50,19 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -78,7 +88,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-09-04T08:53:58.416Z",
+    "registeredAt": "2024-09-09T08:15:42.077Z",
     "registeredBy": "arn:aws:iam::908198849120:user/devops-shweta",
     "tags": []
 }
