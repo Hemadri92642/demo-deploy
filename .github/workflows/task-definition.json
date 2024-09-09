@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:ap-south-1:908198849120:task-definition/demo-deploy:1",
     "containerDefinitions": [
         {
-            "name": "demo-deploy",
+            "name": "demo-deploys",
             "image": "public.ecr.aws/r6x5f5h5/demo-deploy",
             "cpu": 0,
             "portMappings": [
